@@ -1,0 +1,16 @@
+.packItem {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 60px 90px 60px 30px 30px 30px;
+    border-bottom: 2px solid mediumpurple;
+    min-height: 30px;
+}
+
+.packSpecification {
+    display: inline-block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.cardsLink {
+    text-decoration: none;
+}

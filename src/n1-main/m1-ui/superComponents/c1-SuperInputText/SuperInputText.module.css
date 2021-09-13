@@ -1,0 +1,16 @@
+.superInput {
+    width: 80%;
+    border: none;
+    border-bottom: solid 1px #24254A;
+    margin: 20px 10px 0 10px;
+}
+
+.errorInput {
+    border-color: #F1453D;
+}
+
+.error {
+    font-size: 14px;
+    color: #F1453D;
+    height: 20px;
+}

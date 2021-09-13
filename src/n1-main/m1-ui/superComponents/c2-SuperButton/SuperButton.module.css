@@ -1,0 +1,24 @@
+.default {
+    border-radius: 5px;
+    min-width: 50px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/*@media screen  and (max-width: 860px){*/
+/*    .default {*/
+/*        height: auto;*/
+/*        margin: 15px;*/
+/*    }*/
+/*}*/
+
+
+.default:disabled {
+
+    opacity: 0.5%;
+}
+
+.red {
+    background: red;
+}
