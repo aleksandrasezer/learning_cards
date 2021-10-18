@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/card_game/static/css/main.cb43eba3.chunk.css",
+    "main.js": "/card_game/static/js/main.493fbffc.chunk.js",
+    "main.js.map": "/card_game/static/js/main.493fbffc.chunk.js.map",
+    "runtime-main.js": "/card_game/static/js/runtime-main.84ccbea0.js",
+    "runtime-main.js.map": "/card_game/static/js/runtime-main.84ccbea0.js.map",
+    "static/js/2.c96ff98e.chunk.js": "/card_game/static/js/2.c96ff98e.chunk.js",
+    "static/js/2.c96ff98e.chunk.js.map": "/card_game/static/js/2.c96ff98e.chunk.js.map",
+    "static/js/3.87e575cd.chunk.js": "/card_game/static/js/3.87e575cd.chunk.js",
+    "static/js/3.87e575cd.chunk.js.map": "/card_game/static/js/3.87e575cd.chunk.js.map",
+    "index.html": "/card_game/index.html",
+    "static/css/main.cb43eba3.chunk.css.map": "/card_game/static/css/main.cb43eba3.chunk.css.map",
+    "static/js/2.c96ff98e.chunk.js.LICENSE.txt": "/card_game/static/js/2.c96ff98e.chunk.js.LICENSE.txt",
+    "static/media/cloud.01bc04ad.png": "/card_game/static/media/cloud.01bc04ad.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.84ccbea0.js",
+    "static/js/2.c96ff98e.chunk.js",
+    "static/css/main.cb43eba3.chunk.css",
+    "static/js/main.493fbffc.chunk.js"
+  ]
+}
