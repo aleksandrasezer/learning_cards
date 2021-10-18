@@ -16,7 +16,7 @@ export const Learn = () => {
     const cards = useSelector<AppStoreType, Array<CardDataType>>((state) => state.cards.cards)
     const status = useSelector<AppStoreType, RequestStatusType>((state) => state.app.status)
 
-    const grades = ['не знал', 'забыл', 'долго думал', 'перепутал', 'знал'];
+    const grades = ['no idea', 'forgot', 'it took me a while', 'confused a little', 'I knew'];
 
     const [currentQuestion, setQuestion] = useState(0)
     const [answer, setAnswer] = useState(false)
@@ -65,8 +65,8 @@ export const Learn = () => {
                     </div>
                     : <div>
                         {stop
-                            ? <div>
-                                <div className={s.qOver}>The questions are over</div>
+                            ? <div className={s.startOver}>
+                                <div className={s.qOver}>The questions are over:)</div>
                                 <SuperButton onClick={rollbackHandler}>Start over</SuperButton>
                             </div>
                             : <>

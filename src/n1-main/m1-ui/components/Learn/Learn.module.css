@@ -16,10 +16,12 @@
 .qOver {
     margin-bottom: 30px;
     margin-top: 30px;
+    font-size: x-large;
 }
 
-.startOver {
-
+.startOver button {
+    font-size: large;
+    padding: 7px;
 }
 
 .goToPacks {

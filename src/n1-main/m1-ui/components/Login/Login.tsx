@@ -88,6 +88,14 @@ export const Login = () => {
 
             <NavLink to='/forgot-password'>Forgot Password</NavLink> <br/>
             <NavLink to="/register">Sign Up</NavLink>
+
+            <br/>
+            <br/>
+            <div className={style.free}>
+                To log in for test use <br/>common test account credentials: <br/>
+                Email: <span style={{color: 'black'}}>eto4ka@gmail.com</span> <br/>
+                Password: <span style={{color: 'black'}}>1234qwerty</span>
+            </div>
         </div>
     )
 }
