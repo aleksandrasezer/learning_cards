@@ -3,11 +3,11 @@
     font-size: large;
     padding-bottom: 15px;
     padding-top: 15px;
-    border-bottom: 2px solid darkviolet;
-    background-color: mediumpurple;
+    border-bottom: 2px solid rgba(0,0,190,1);
+    background-color: rgba(0,0,190,0.5);
     display: grid;
     grid-template-columns: 1fr 1fr 60px 15px 75px 150px;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 15px 15px 0 0;
 }
 
@@ -22,7 +22,7 @@
 .packsField {}
 
 .sidebar {
-    background-color: mediumpurple;
+    background-color: rgba(0,0,190,0.5);
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     border-radius: 15px;
@@ -75,8 +75,8 @@
     .packsContainer {
         grid-template-columns: none;
         grid-gap: 0;
+        width: 85%;
     }
-
     .sidebar {
         grid-template-rows: none;
         grid-template-columns: repeat(3, 1fr);
@@ -84,12 +84,13 @@
         padding: 10px;
         border-radius: 0 0 15px 15px;
     }
-
     .showMyAllPacks {
         padding: 0;
     }
-
     .search {
        padding: 0;
     }
+}
+@media screen  and (max-width: 800px) {
+    .packsContainer {width: 100%}
 }

@@ -1,24 +1,16 @@
 .default {
     border-radius: 5px;
-    min-width: 50px;
-    min-height: 25px;
+    padding: 5px 10px;
     margin: 5px;
     cursor: pointer;
+    border: none;
 }
-
-/*@media screen  and (max-width: 860px){*/
-/*    .default {*/
-/*        height: auto;*/
-/*        margin: 15px;*/
-/*    }*/
-/*}*/
-
-
+.default:hover {
+    background-color: lightgrey;
+}
 .default:disabled {
-
     opacity: 0.5%;
 }
-
 .red {
     background: red;
 }

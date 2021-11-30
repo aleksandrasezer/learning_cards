@@ -28,8 +28,8 @@ export const ModalForPacks = (props: ModalForPacksPropsType) => {
 
   return (
     <>
-      <div className={s.wrapperModal}>
-        <div className={s.modal}>
+      <div className={s.wrapperModal} onClick={props.closeAddEditPackModal}>
+        <div className={s.modal} onClick={e => e.stopPropagation()}>
           <h3>Enter new pack name</h3>
           <form>
             <SuperInputText

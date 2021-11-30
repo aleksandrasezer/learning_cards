@@ -1,13 +1,16 @@
 .bgr {
     width: 415px;
-    height: 600px;
+    height: 100vh;
     margin: 0 auto;
     color: #2D2E46;
     text-align: center;
-
-    background: #F9F9FE;
-    border-radius: 8px;
-    border: 1px solid red;
+    background-color: rgba(0,0,190,0.5);
+    border-radius: 15px;
+    padding-top: 20px;
+}
+.bgr a {
+    color: white;
+    text-underline-color: white;
 }
 
 .form {

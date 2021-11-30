@@ -25,18 +25,15 @@ import {ModalForCards} from "../Modal/ModalCards/ModalForCards";
 export const Cards = () => {
 
     const dispatch = useDispatch()
-
     const {cards, cardsTotalCount, pageCount, sortCards, page} = useSelector((state: AppStoreType) => state.cards)
     const {packID} = useParams<{ packID: string }>()
     const isLoggedIn = useSelector((state: AppStoreType) => state.auth.isLoggedIn)
     const _id = useSelector((state: AppStoreType) => state.auth.userData._id)
     const packUserId = useSelector((state: AppStoreType) => state.packs.userId)
 
-
     useEffect(() => {
         dispatch(getCardsTC(packID))
     }, [dispatch, packID])
-
 
     // Add card modal
     const [addCardModal, setAddCardsModal] = useState<boolean>(false);
@@ -57,7 +54,6 @@ export const Cards = () => {
     const updateCard = useCallback((updateCardData: updateCardDataType) => {
         dispatch(updateCardTC(packID, updateCardData))
     }, [dispatch])
-
 
     //pagination
     let pages = []
@@ -100,14 +96,12 @@ export const Cards = () => {
             <div>
                 <h1>Cards</h1>
             </div>
-
             {addCardModal && <ModalForCards
                 addNewCard={addCardHandler}
                 closeAddEditCardModal={closeAddEditCardModal}
                 questionPlaceholder='question'
                 answerPlaceholder='answer'
             />}
-
             <div className={st.cardContents}>
                 <div>question</div>
                 <div>answer</div>

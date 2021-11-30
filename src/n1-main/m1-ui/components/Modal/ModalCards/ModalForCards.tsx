@@ -36,8 +36,8 @@ export const ModalForCards = (props: ModalForCardsPropsType) => {
 
   return (
     <>
-      <div className={s.wrapperModal}>
-        <div className={s.modal}>
+      <div className={s.wrapperModal} onClick={props.closeAddEditCardModal}>
+        <div className={s.modal} onClick={e => e.stopPropagation()}>
           <h3>{props.title}</h3>
           <form>
             <SuperInputText

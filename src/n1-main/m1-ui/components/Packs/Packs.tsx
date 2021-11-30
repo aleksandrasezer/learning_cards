@@ -27,12 +27,10 @@ import SearchIcon from '@material-ui/icons/Search';
 export const Packs: React.FC = React.memo(() => {
 
     const dispatch = useDispatch()
-
     const {cardPacks, totalPacksCount, pageSize, currentPage, minCardsCount, maxCardsCount, sortPacks, userId}
         = useSelector((state: AppStoreType) => state.packs)
     const isLoggedIn = useSelector((state: AppStoreType) => state.auth.isLoggedIn)
     const _id = useSelector((state: AppStoreType) => state.auth.userData._id)
-
     const [searchText, setSearchText] = useState('')
 
     useEffect(() => {
@@ -59,7 +57,6 @@ export const Packs: React.FC = React.memo(() => {
         dispatch(updatePackTC(packId, newPackName))
     }, [dispatch])
 
-
     //sort
     const sortByLastUpdate = () => {
         dispatch(setSortPacksAC('0updated'))
@@ -70,9 +67,8 @@ export const Packs: React.FC = React.memo(() => {
         dispatch(getPacksTC())
     }
     const sortPacksByUpdate = sortPacks === '1updated'
-        ? <span style={{cursor: 'pointer'}}><ArrowDownwardIcon onClick={sortByLastUpdate} color='primary' /></span>
+        ? <span style={{cursor: 'pointer'}}><ArrowDownwardIcon onClick={sortByLastUpdate} color='primary'/></span>
         : <span style={{cursor: 'pointer'}}><ArrowUpwardIcon onClick={sortByFirstUpdate} color='primary'/></span>
-
 
     //my/all packs
     const [myPacks, setMyPacks] = useState(userId === _id)
@@ -124,30 +120,26 @@ export const Packs: React.FC = React.memo(() => {
         currentUserId={_id}
     />)
 
-
     if (!isLoggedIn) {
         return <Login/>
     }
-    console.log('Packs render')
+
     return (
         <div>
             <div className={st.title}>
                 <h1>Packs</h1>
             </div>
             <div className={st.packsContainer}>
-
                 <div className={st.packsField}>
                     <div className={st.packContents}>
                         <div>username</div>
                         <div>name</div>
                         <div>count</div>
-
                         <div>{sortPacksByUpdate}</div>
                         <div>update</div>
-                        <div><SuperButton onClick={openAddEditPackModal}>add</SuperButton>
-
-
-                    </div>
+                        <div>
+                            <SuperButton onClick={openAddEditPackModal}>add</SuperButton>
+                        </div>
                     </div>
                     <div>
                         {mappedPacks}

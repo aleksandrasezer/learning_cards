@@ -1,4 +1,3 @@
-import React from "react";
 import {Tooltip, withStyles} from "@material-ui/core";
 
 export const LightTooltip = withStyles((theme) => ({

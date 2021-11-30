@@ -21,8 +21,8 @@ export const ModalDeleteItem = (props: ModalDeletePropsType) => {
 
     return (
         <>
-            <div className={s.wrapperModal}>
-                <div className={s.modal}>
+            <div className={s.wrapperModal} onClick={props.closeDeleteModal}>
+                <div className={s.modal} onClick={e => e.stopPropagation()}>
                     <h3 style={{color: 'darkred'}}>{props.title}</h3>
                     <form>
                         <div className={s.buttonBlock}>
