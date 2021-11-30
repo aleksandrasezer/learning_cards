@@ -29,7 +29,6 @@ export const Routes = () => {
             {/*Switch выбирает первый подходящий роут*/}
             <Switch>
                 <Route path={'/'} exact render={() => <Redirect to={PATH.PROFILE}/>}/>
-
                 <Route path={PATH.LOGIN} render={() => <Login/>}/>
                 <Route path={PATH.REGISTER} render={() => <Register/>}/>
                 <Route path={PATH.FORGOT_PASSWORD} render={() => <ForgotPassword/>}/>
@@ -38,7 +37,6 @@ export const Routes = () => {
                 <Route path={PATH.PACKS} render={() => <Packs/>}/>
                 <Route path={PATH.CARDS} render={() => <Cards/>}/>
                 <Route path={PATH.LEARN} render={() => <Learn/>}/>
-
                 <Route render={() => <Error404/>}/>
             </Switch>
         </div>

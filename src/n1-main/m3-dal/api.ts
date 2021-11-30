@@ -93,7 +93,6 @@ export type updateCardDataType = {
     question: string,
     answer: string
 }
-
 export type CreateCardRequestDataType = {
     cardsPack_id: string
     question?: string
@@ -102,7 +101,6 @@ export type CreateCardRequestDataType = {
     shots?: number
     type?: string
 }
-
 export type AddPackRequestDataType = {
     name?: string
     private?: boolean

@@ -7,16 +7,12 @@ import {useFormik} from "formik";
 import SuperInputText from "../superComponents/c1-SuperInputText/SuperInputText";
 import {AppStoreType} from '../../m2-bll/store';
 
-export type RecoveryFormikErrorType = {
-    email?: string
-}
 export const ForgotPassword = () => {
     const dispatch = useDispatch()
     const recoveredPassword = useSelector((state: AppStoreType) => state.forgotPassword.recoveredPassword)
 
-
     const message = `<div style="background-color: lime; padding: 15px">
-            password recovery link:	<a href='https://Peleka.github.io/cards-game/#/new-password/$token$'>link</a>
+            password recovery link:	<a href='https://aleksandrasezer.github.io/learning_cards/#/new-password/$token$'>link</a>
             </div>`
 
     const formik = useFormik({
@@ -57,10 +53,6 @@ export const ForgotPassword = () => {
     )
 }
 
-
-type MessagePropsType = {
-    email: string
-}
 const Message = (props: MessagePropsType) => {
     return (
         <div>
@@ -70,4 +62,12 @@ const Message = (props: MessagePropsType) => {
             </span>
         </div>
     )
+}
+
+//types
+type MessagePropsType = {
+    email: string
+}
+export type RecoveryFormikErrorType = {
+    email?: string
 }

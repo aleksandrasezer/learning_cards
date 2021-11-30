@@ -20,10 +20,7 @@ const reducers = combineReducers({
 export type AppActions = PacksActionsType | CardsActionsType | AppActionsType
 export type AppThunkType<ReturnType= void> = ThunkAction<ReturnType, AppStoreType, unknown, AppActions>
 
-const store = createStore(reducers, applyMiddleware(thunk));
-
-export default store
-
+export const store = createStore(reducers, applyMiddleware(thunk));
 export type AppStoreType = ReturnType<typeof reducers>
 
 // @ts-ignore

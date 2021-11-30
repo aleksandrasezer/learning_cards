@@ -3,16 +3,6 @@ import SuperInputText from '../../../superComponents/c1-SuperInputText/SuperInpu
 import s from '../Modal.module.css';
 import SuperButton from "../../../superComponents/c2-SuperButton/SuperButton";
 
-type ModalForCardsPropsType = {
-  closeAddEditCardModal: () => void
-  addNewCard: (question: string, answer: string) => void
-  title?: string
-  questionPlaceholder?: string
-  answerPlaceholder?: string
-  questionValue?: string
-  answerValue?: string
-}
-
 export const ModalForCards = (props: ModalForCardsPropsType) => {
   const [question, setQuestion] = useState(props.questionValue ?? '')
   const [answer, addQuestion] = useState(props.answerValue ?? '')
@@ -20,16 +10,13 @@ export const ModalForCards = (props: ModalForCardsPropsType) => {
   const inputChangeHandlerQuestion = (e: ChangeEvent<HTMLInputElement>) => {
     setQuestion(e.currentTarget.value)
   }
-
   const inputChangeHandlerAnswer = (e: ChangeEvent<HTMLInputElement>) => {
     addQuestion(e.currentTarget.value)
   }
-
   const onClickHandler = () => {
     props.addNewCard(question, answer)
     props.closeAddEditCardModal()
   }
-
   const onClosedClick = () => {
     props.closeAddEditCardModal()
   }
@@ -61,4 +48,15 @@ export const ModalForCards = (props: ModalForCardsPropsType) => {
       </div>
     </>
   )
+}
+
+//types
+type ModalForCardsPropsType = {
+  closeAddEditCardModal: () => void
+  addNewCard: (question: string, answer: string) => void
+  title?: string
+  questionPlaceholder?: string
+  answerPlaceholder?: string
+  questionValue?: string
+  answerValue?: string
 }

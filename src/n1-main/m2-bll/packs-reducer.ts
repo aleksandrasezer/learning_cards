@@ -15,9 +15,6 @@ const initialState = {
     userId: '',
     sortPacks: '0updated' as SortPacksOptions,
 }
-type SortPacksOptions = '0updated' | '1updated'
-
-type InitialStateType = typeof initialState
 
 export const packsReducer = (state = initialState, action: PacksActionsType): InitialStateType => {
     switch (action.type) {
@@ -51,7 +48,6 @@ export const setMinCardsCountAC = (minCardsCount: number) => ({type: 'PACKS/SET-
 } as const)
 export const setMaxCardsCountAC = (maxCardsCount: number) => ({type: 'PACKS/SET-MAX-CARDS_COUNT', maxCardsCount,
 } as const)
-
 export const setPacksAC = (data: PackResponseType[]) => ({type: 'PACKS/SET-PACKS', data,} as const)
 const setTotalPacksCountAC = (totalPacks: number) => ({type: 'SET-TOTAL-PACKS-COUNT', totalPacks,} as const)
 export const setCurrentPageAC = (pageNumber: number) => ({type: 'SET-CURRENT-PAGE', pageNumber,} as const)
@@ -64,7 +60,6 @@ export const setSortPacksAC = (sortValue: SortPacksOptions) => ({type: 'PACKS/SE
 
 //thunk
 export const getPacksTC = (): AppThunkType => (dispatch, getState) => {
-    // debugger
     dispatch(setAppStatusAC('loading'))
     const state = getState()
     const currentPage = state.packs.currentPage
@@ -83,7 +78,6 @@ export const getPacksTC = (): AppThunkType => (dispatch, getState) => {
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('get packs error')
         })
 }
 
@@ -92,12 +86,10 @@ export const addPackTC = (data: AddPackRequestDataType): AppThunkType => (dispat
     packsAPI.addPack(data)
         .then(() => {
             dispatch(getPacksTC())
-            console.log('pack added successfully')
             dispatch(setAppStatusAC("succeeded"))
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('add pack error')
         })
 }
 
@@ -107,11 +99,9 @@ export const delPackTC = (id: string): AppThunkType => dispatch => {
         .then(() => {
             dispatch(setAppStatusAC('succeeded'))
             dispatch(getPacksTC())
-            console.log('pack deleted successfully')
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('delete pack error')
         })
 }
 
@@ -120,12 +110,10 @@ export const updatePackTC = (packId: string, newPackName: string): AppThunkType 
     packsAPI.updatePack(packId, newPackName)
         .then(() => {
             dispatch(getPacksTC())
-            console.log('pack updated successfully')
             dispatch(setAppStatusAC('succeeded'))
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('update pack error')
         })
 }
 
@@ -141,7 +129,6 @@ export type PacksActionsType = ReturnType<typeof setPacksAC>
     | ReturnType<typeof setMaxCardsCountAC>
     | ReturnType<typeof setNameAC>
     | ReturnType<typeof setSortPacksAC>
-
 export type GetPacksRequestDataType = {
     packName?: string
     min?: number
@@ -151,7 +138,6 @@ export type GetPacksRequestDataType = {
     pageCount?: string
     user_id?: string
 }
-
 export type PackResponseType = {
     "_id": string,
     "user_id": string,
@@ -169,9 +155,10 @@ export type PackResponseType = {
     "more_id": string,
     "__v": number,
 }
-
 export type UpdatePacksRequestDataType = {
     _id: string
     name?: string
     private?: boolean
 }
+type SortPacksOptions = '0updated' | '1updated'
+type InitialStateType = typeof initialState

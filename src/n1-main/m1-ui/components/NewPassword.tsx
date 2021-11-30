@@ -8,16 +8,10 @@ import {Redirect, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStoreType} from "../../m2-bll/store";
 
-type SetNewPassErrorType = {
-  password?: string
-  confirmPassword?: string
-}
-
 export const  NewPassword = () => {
   const dispatch = useDispatch()
   const newPasswordSet = useSelector((state: AppStoreType) => state.setNewPassword.isNewPassword)
   const {token} = useParams<{ token: string }>()
-
 
   const formik = useFormik({
     initialValues: {
@@ -45,7 +39,6 @@ export const  NewPassword = () => {
         dispatch(setNewPasswordTC(values.confirmPassword, token))
         formik.resetForm()
       }
-      // dispatch(setNewPasswordTC(values.password, token))
     },
   });
 
@@ -76,4 +69,10 @@ export const  NewPassword = () => {
             </div>
         </div>
     )
+}
+
+//types
+type SetNewPassErrorType = {
+  password?: string
+  confirmPassword?: string
 }

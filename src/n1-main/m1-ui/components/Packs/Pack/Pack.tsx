@@ -21,7 +21,6 @@ export const Pack: React.FC<PackPropsType> = React.memo((props) => {
         props.updatePack(props._id, newPackName)
     }
 
-
     // Update pack modal
     const [editPackModal, setEditPackModal] = useState<boolean>(false);
     const openAddEditPackModal = () => {
@@ -40,10 +39,6 @@ export const Pack: React.FC<PackPropsType> = React.memo((props) => {
         setDeletePackModal(false)
     }
 
-    // ОнКлик на кнопку Edit
-    // const updatePack = () => {
-    //   props.updatePacks(props.updatePacks.cardsPack)
-    // }
     return (
         <div className={s.packItem}>
             <div className={s.packSpecification}>{props.user_name}</div>
@@ -59,7 +54,6 @@ export const Pack: React.FC<PackPropsType> = React.memo((props) => {
                     </LightTooltip>
                 </NavLink>
             </div>
-
             <div className={s.packSpecification}>
                 {props.user_id === props.currentUserId
                     ? <LightTooltip title='Edit pack'><span style={{cursor: 'pointer'}}>
@@ -72,19 +66,16 @@ export const Pack: React.FC<PackPropsType> = React.memo((props) => {
                         <DeleteIcon onClick={openDeletePackModal} color='secondary'/></span>
                     </LightTooltip> : ''}
             </div>
-
             {editPackModal && <ModalForPacks
                 closeAddEditPackModal={closeAddEditPackModal}
                 addNewPack={updatePack}
                 titlePack={props.name}
             />}
-
             {deletePackModal && <ModalDeleteItem
                 closeDeleteModal={closeDeletePackModal}
                 deleteItem={delPack}
                 title={`Are you sure you want to delete pack '${props.name}'?`}
             />}
-
         </div>
     )
 })

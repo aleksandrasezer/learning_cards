@@ -20,8 +20,6 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import {Pagination} from "@material-ui/lab";
 import {ModalForCards} from "../Modal/ModalCards/ModalForCards";
 
-
-
 export const Cards = () => {
 
     const dispatch = useDispatch()

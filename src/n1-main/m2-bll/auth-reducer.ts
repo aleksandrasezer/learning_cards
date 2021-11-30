@@ -2,7 +2,6 @@ import {Dispatch} from "redux";
 import {authAPI} from "../m3-dal/api";
 import {setAppStatusAC} from "./app-reducer";
 
-
 const initialState = {
     userData: {
         avatar: '',
@@ -22,8 +21,6 @@ const initialState = {
     isLoggedIn: false,
     authError: '',
 };
-
-type InitialStateType = typeof initialState
 
 export const authReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
@@ -45,16 +42,13 @@ export const setIsLoggedInAC = (value: boolean, userData: UserDataResponseType) 
 export const setIsLoggedOutAC = (value: boolean) => ({
     type: 'login/SET-IS-LOGGED-OUT', value
 } as const)
-
 const setAuthErrorAC = (errorMessage: string) => ({
     type: 'login/SET-AUTH-ERROR', errorMessage
 } as const)
 
 //thunks
 export const loginTC = (values: UserLoginData) => (dispatch: Dispatch<ActionsType>) => {
-
     dispatch(setAppStatusAC('loading'))
-
     authAPI.login(values.email, values.password, values.rememberMe)
         .then((res) => {
             dispatch(setIsLoggedInAC(true, res.data))
@@ -83,14 +77,11 @@ type ActionsType = ReturnType<typeof setIsLoggedInAC>
     | ReturnType<typeof setIsLoggedOutAC>
     | ReturnType<typeof setAppStatusAC>
     | ReturnType<typeof setAuthErrorAC>
-
-
 export type UserLoginData = {
     email: string
     password: string
     rememberMe: boolean
 }
-
 export type UserDataResponseType = {
     avatar: string
     created: string
@@ -106,3 +97,4 @@ export type UserDataResponseType = {
     __v: number
     _id: string
 }
+type InitialStateType = typeof initialState

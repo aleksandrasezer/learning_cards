@@ -6,8 +6,6 @@ const initialState = {
   isNewPassword: false
 }
 
-type InitialStateType = typeof initialState
-
 export const setNewPasswordReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
   switch (action.type) {
     case 'setNewPassword/SET-NEW-PASSWORD':
@@ -17,13 +15,10 @@ export const setNewPasswordReducer = (state: InitialStateType = initialState, ac
   }
 }
 
-// AC
-const setNewPasswordAC = () => ({
-  type: 'setNewPassword/SET-NEW-PASSWORD'
-} as const)
+// action creators
+const setNewPasswordAC = () => ({type: 'setNewPassword/SET-NEW-PASSWORD'} as const)
 
-
-// Thunk
+// thunk
 export const setNewPasswordTC = (password: string, resetPasswordToken: string) => {
   return (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
@@ -39,5 +34,6 @@ export const setNewPasswordTC = (password: string, resetPasswordToken: string) =
   }
 }
 
-// Type
+// types
 type ActionsType = ReturnType<typeof setNewPasswordAC> | ReturnType<typeof setAppStatusAC>
+type InitialStateType = typeof initialState

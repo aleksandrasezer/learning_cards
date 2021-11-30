@@ -2,14 +2,10 @@ import {AppThunkType} from "./store";
 import {setIsLoggedInAC} from "./auth-reducer";
 import {authAPI} from "../m3-dal/api";
 
-export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
-
 const initialState = {
     status: 'idle' as RequestStatusType,
     isInitialized: false,
 }
-
-type InitialStateType = typeof initialState
 
 export const appReducer = (state: InitialStateType = initialState, action: AppActionsType): InitialStateType => {
     switch (action.type) {
@@ -23,14 +19,8 @@ export const appReducer = (state: InitialStateType = initialState, action: AppAc
 }
 
 //action creators
-export const setAppStatusAC = (status: RequestStatusType) => ({
-    type: 'APP/SET-STATUS',
-    status
-} as const)
-export const setIsInitializedAC = (isInitialized: boolean) => ({
-    type: 'APP/SET-IS-INITIALIZED',
-    isInitialized
-} as const)
+export const setAppStatusAC = (status: RequestStatusType) => ({type: 'APP/SET-STATUS',status} as const)
+export const setIsInitializedAC = (isInitialized: boolean) => ({type: 'APP/SET-IS-INITIALIZED',isInitialized} as const)
 
 //thunk
 export const setIsInitializedTC = (): AppThunkType => dispatch => {
@@ -53,6 +43,7 @@ export const setIsInitializedTC = (): AppThunkType => dispatch => {
 export type AppActionsType = ReturnType<typeof setAppStatusAC>
     | ReturnType<typeof setIsLoggedInAC>
     | ReturnType<typeof setIsInitializedAC>
-
+export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
+type InitialStateType = typeof initialState
 
 

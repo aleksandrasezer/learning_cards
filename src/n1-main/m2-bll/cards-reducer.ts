@@ -13,10 +13,6 @@ const initialState = {
     sortCards: '0grade' as SortCardsOptions,
 }
 
-type SortCardsOptions = '0grade' | '1grade'
-
-type InitialStateType = typeof initialState
-
 export const cardsReducer = (state: InitialStateType = initialState, action: CardsActionsType): InitialStateType => {
     switch (action.type) {
         case "CARDS/SET-CARDS":
@@ -41,7 +37,6 @@ export const setCardsCurrentPageAC = (page: number) => ({type: 'CARDS/SET_CURREN
 export const setSortCardsAC = (sortValue: SortCardsOptions) => ({type: 'CARDS/SET-SORT', sortValue} as const)
 export const setPageCountAC = (pageCount: number) => ({type: 'CARDS/SET-PAGE-COUNT', pageCount} as const)
 
-
 //thunk
 export const getCardsTC = (cardsPack_id: string): AppThunkType => (dispatch, getState) => {
     dispatch(setAppStatusAC('loading'))
@@ -57,7 +52,6 @@ export const getCardsTC = (cardsPack_id: string): AppThunkType => (dispatch, get
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('get cards error')
         })
 }
 
@@ -81,11 +75,9 @@ export const delCardTC = (id: string, packId: string): AppThunkType => dispatch 
         .then(() => {
             dispatch(setAppStatusAC('succeeded'))
             dispatch(getCardsTC(packId))
-            console.log('card deleted successfully')
         })
         .catch(() => {
             dispatch(setAppStatusAC('failed'))
-            console.log('delete card error')
         })
 }
 
@@ -127,17 +119,6 @@ export type CardsActionsType = ReturnType<typeof setCardsAC>
     | ReturnType<typeof setSortCardsAC>
     | ReturnType<typeof setPageCountAC>
 
-// export type GetCardsRequestDataType = {
-//     cardAnswer?: string
-//     cardQuestion?: string
-//     cardsPack_id: string
-//     min?: number
-//     max?: number
-//     sortCards?: number
-//     page?: number
-//     pageCount?: number
-// }
-
 export type CardDataType = {
     cardsPack_id: string
     answer: string
@@ -155,3 +136,5 @@ export type CardDataType = {
     __v?: number
     _id: string
 }
+type SortCardsOptions = '0grade' | '1grade'
+type InitialStateType = typeof initialState

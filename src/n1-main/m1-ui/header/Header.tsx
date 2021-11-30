@@ -8,9 +8,7 @@ import {ExitToApp} from "@material-ui/icons";
 import {LightTooltip} from "../common/LightToolTip";
 
 export const Header = () => {
-
     const dispatch = useDispatch()
-
     return (
         <div>
             <div className={s.wrapper}>

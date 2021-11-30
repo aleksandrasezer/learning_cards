@@ -6,8 +6,6 @@ const initialState = {
     recoveredPassword: false
 };
 
-type InitialStateType = typeof initialState
-
 export const recoverPasswordReducer = (state: InitialStateType = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case 'recoverPassword/CHANGE-PASSWORD':
@@ -39,3 +37,4 @@ export const recoverPasswordTC = (email: string, message: string) => {
 }
 // types
 type ActionsType = ReturnType<typeof recoverPasswordAC> | ReturnType<typeof setAppStatusAC>
+type InitialStateType = typeof initialState

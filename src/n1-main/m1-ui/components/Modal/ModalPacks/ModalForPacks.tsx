@@ -3,25 +3,16 @@ import SuperInputText from '../../../superComponents/c1-SuperInputText/SuperInpu
 import SuperButton from '../../../superComponents/c2-SuperButton/SuperButton';
 import s from '../Modal.module.css';
 
-type ModalForPacksPropsType = {
-  closeAddEditPackModal: () => void
-  addNewPack: (name: string) => void
-  titlePack?: string
-  placeholder?: string
-}
-
 export const ModalForPacks = (props: ModalForPacksPropsType) => {
   const [newText, setNewText] = useState(props.titlePack ?? '')
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setNewText(e.currentTarget.value)
   }
-
   const onClickHandler = () => {
     props.addNewPack(newText)
     props.closeAddEditPackModal()
   }
-
   const onClosedClick = () => {
     props.closeAddEditPackModal()
   }
@@ -47,4 +38,12 @@ export const ModalForPacks = (props: ModalForPacksPropsType) => {
       </div>
     </>
   )
+}
+
+//types
+type ModalForPacksPropsType = {
+  closeAddEditPackModal: () => void
+  addNewPack: (name: string) => void
+  titlePack?: string
+  placeholder?: string
 }

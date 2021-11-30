@@ -9,20 +9,11 @@ import {ModalForCards} from "../../Modal/ModalCards/ModalForCards";
 import {ModalDeleteItem} from "../../Modal/ModalDelete/ModalDeleteItem";
 import {LightTooltip} from "../../../common/LightToolTip";
 
-type CardPropsType = CardDataType & {
-    delCard: (id: string, packId: string) => void
-    updateCard: (updateCard: updateCardDataType) => void
-    packId: string
-    currentUserId: string
-}
-
 export const Card = (props: CardPropsType) => {
-
 
     const deleteCardHandler = () => props._id && props.delCard(props._id, props.packId)
     const updateCardHandler = (question: string, answer: string) =>
         props.updateCard({_id: props._id, question, answer})
-
     const update = new Date(props.updated).toLocaleDateString(['ban', 'id']);
 
     // Update card modal
@@ -61,7 +52,6 @@ export const Card = (props: CardPropsType) => {
                         <Delete onClick={openDeleteCardModal} color='secondary'/></span>
                     </LightTooltip> : ''}
             </div>
-
             {editCardModal && <ModalForCards
                 addNewCard={updateCardHandler}
                 closeAddEditCardModal={closeAddEditCardModal}
@@ -70,14 +60,19 @@ export const Card = (props: CardPropsType) => {
                 answerValue={props.answer}
 
             />}
-
             {deleteCardModal && <ModalDeleteItem
                 closeDeleteModal={closeDeleteCardModal}
                 deleteItem={deleteCardHandler}
                 title={`Are you sure you want to delete card '${props.question}'?`}
             />}
-
         </div>
     )
+}
 
+//types
+type CardPropsType = CardDataType & {
+    delCard: (id: string, packId: string) => void
+    updateCard: (updateCard: updateCardDataType) => void
+    packId: string
+    currentUserId: string
 }

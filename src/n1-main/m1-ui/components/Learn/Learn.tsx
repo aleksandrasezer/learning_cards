@@ -43,7 +43,6 @@ export const Learn = () => {
     const setAnswerHandler = () => {
         setAnswer(true)
     }
-
     const rollbackHandler = () => {
         setQuestion(0)
         setStop(false)

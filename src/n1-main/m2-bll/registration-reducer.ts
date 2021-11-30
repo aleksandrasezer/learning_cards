@@ -6,8 +6,6 @@ const initialState = {
     isRegistered: false
 }
 
-type InitialStateType = typeof initialState
-
 export const registerReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case "register/SET-SIGN-UP":
@@ -39,10 +37,10 @@ export const registerTC = (values: UserLoginData) => {
     }
 }
 
-
 //types
 type ActionsType = ReturnType<typeof setSignUpAC> | ReturnType<typeof setAppStatusAC>
 type UserLoginData = {
     email: string
     password: string
 }
+type InitialStateType = typeof initialState

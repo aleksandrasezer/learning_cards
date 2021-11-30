@@ -23,7 +23,6 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import SearchIcon from '@material-ui/icons/Search';
 
-
 export const Packs: React.FC = React.memo(() => {
 
     const dispatch = useDispatch()
@@ -145,23 +144,18 @@ export const Packs: React.FC = React.memo(() => {
                         {mappedPacks}
                     </div>
                 </div>
-
                 {addPackModal && <ModalForPacks
                     closeAddEditPackModal={closeAddEditPackModal}
                     addNewPack={addPack}
                     placeholder='new pack name'
                 />}
-
                 <div className={st.sidebar}>
-
                     <div className={st.showMyAllPacks}>
                         <span className={activeMyPacksButton}>
                         <SuperButton onClick={showMyPacks}> my packs </SuperButton> </span>
-
                         <span className={activeAllPacksButton}>
                         <SuperButton onClick={showAllPacks}> all packs </SuperButton> </span>
                     </div>
-
                     <div className={st.filterByCardsCount}>
                         <Slider
                             style={{margin: '0', padding: '0'}}
@@ -174,7 +168,6 @@ export const Packs: React.FC = React.memo(() => {
                             max={20}
                         />
                     </div>
-
                     <div className={st.search}>
                         <SuperInputText
                             onChangeText={onSearchChangeHandler}
@@ -183,11 +176,8 @@ export const Packs: React.FC = React.memo(() => {
                             value={searchText}/>
                         <SearchIcon onClick={search}/>
                     </div>
-
                 </div>
-
             </div>
-
             <div className={st.paginator}>
                 <Pagination count={pagesCount}
                             boundaryCount={1}
