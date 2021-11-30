@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/learning_cards/static/css/main.a26a3f40.chunk.css",
-    "main.js": "/learning_cards/static/js/main.0ae1da37.chunk.js",
-    "main.js.map": "/learning_cards/static/js/main.0ae1da37.chunk.js.map",
+    "main.js": "/learning_cards/static/js/main.ebea597b.chunk.js",
+    "main.js.map": "/learning_cards/static/js/main.ebea597b.chunk.js.map",
     "runtime-main.js": "/learning_cards/static/js/runtime-main.65e3b1b2.js",
     "runtime-main.js.map": "/learning_cards/static/js/runtime-main.65e3b1b2.js.map",
     "static/js/2.a743c9b7.chunk.js": "/learning_cards/static/js/2.a743c9b7.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.65e3b1b2.js",
     "static/js/2.a743c9b7.chunk.js",
     "static/css/main.a26a3f40.chunk.css",
-    "static/js/main.0ae1da37.chunk.js"
+    "static/js/main.ebea597b.chunk.js"
   ]
 }
